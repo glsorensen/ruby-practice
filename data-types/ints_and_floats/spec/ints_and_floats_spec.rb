@@ -4,7 +4,7 @@ RSpec.describe 'ints and floats' do
     unlucky = 13
     # Using the two variables defined above,
     # add the lucky number and the unlucky number
-    sum = ________
+    sum = lucky + unlucky
     expect(sum).to eq(20)
   end
 
