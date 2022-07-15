@@ -4,6 +4,7 @@ RSpec.describe 'Arrays' do
     # in the line below, create a new empty array
 
     empty = []
+    empty = Array.new
     expect(empty).to eq([])
   end
 
