@@ -1,4 +1,5 @@
 require_relative 'nesting'
+require 'pry'
 
 # The intent of this exercise is to practice working with nested collections.
 # Some tests will be able to pass without any enumeration, and others will require
@@ -21,58 +22,76 @@ RSpec.describe 'Advanced Nested Collections' do
     expect(employees).to eq(expected)
   end
 
-  xit 'test 2' do
+  it 'test 2' do
     # Find the ingredients for pancakes
-    pancake_ingredients = _____
-
+    pancake_ingredients = stores[:dennys][:dishes][0][:ingredients]
+    
     expected = ["Flour", "Eggs", "Milk", "Syrup"]
     expect(pancake_ingredients).to eq(expected)
   end
-
-  xit 'test 3' do
+  
+  it 'test 3' do
     # Find the price of risotto
-    risotto_price = ____
-
+    risotto_price = stores[:olive_garden][:dishes][0][:price]
+    
     expect(risotto_price).to eq(12)
   end
-
-  xit 'test 4' do
+  
+  it 'test 4' do
     # Find the ingredients for a Big Mac
-    big_mac_ingredients = ____
-
+    big_mac_ingredients = stores[:macdonalds][:dishes][0][:ingredients]
+    
     expected = ['Bun','Hamburger','Ketchup','pickles']
     expect(big_mac_ingredients).to eq(expected)
   end
-
-  xit 'test 5' do
+  
+  it 'test 5' do
     # Find a list of restaurants
-    store_names = ____
-
+    store_names = stores.keys
+    
     expected = [:olive_garden, :dennys, :macdonalds]
     expect(store_names).to eq(expected)
   end
-
-  xit 'test 6' do
+  
+  it 'test 6' do
     # Find dishes names for Olive Garden
-    dishes_names = ____
+    dishes_names = 
+      stores[:olive_garden][:dishes].map do |dish|
+        dish[:name]
+      end
 
+      dishes_names = []
+      
+      stores[:olive_garden][:dishes].each do |dish|
+        dishes_names << dish[:name]
+      end
+    
     expect(dishes_names).to eq(['Risotto', 'Steak'])
   end
-
-  xit 'test 7' do
+  
+  it 'test 7' do
     # Return a list of employees across
     # all restaurants
-    employee_names = ____
+  
+    employee_names =
 
-    expected = ["Jeff", "Zach", "Samantha", "Bob", "Sue", "James", "Alvin", "Simon", "Theodore"]
-    expect(employee_names).to eq(expected)
-  end
-
-  xit 'test 8' do
-    # Return a list of all ingredients
-    # across all restaurants
-    ingredients = ____
-
+      stores.map do |store_name, store_info|
+        store_info[:employees]
+      end.flatten
+      
+      expected = ["Jeff", "Zach", "Samantha", "Bob", "Sue", "James", "Alvin", "Simon", "Theodore"]
+      expect(employee_names).to eq(expected)
+    end
+    
+    it 'test 8' do
+      # Return a list of all ingredients
+      # across all restaurants
+    ingredients = 
+    stores.map do |store_name, store_info|
+      store_info[:dishes].map do |dish|
+        dish[:ingredients]
+      end
+    end.flatten
     expected = [
       "Rice",
       "Cheese",
@@ -96,17 +115,24 @@ RSpec.describe 'Advanced Nested Collections' do
     expect(ingredients).to eq(expected)
   end
 
-  xit 'test 9' do
+  it 'test 9' do
     # Return the full menu price for Olive Garden
-    full_menu_price = ____
+    full_menu_price = 
+    stores[:olive_garden][:dishes].map do |v|
+      v[:price]    
+    end.sum
+  
 
     expect(full_menu_price).to eq(27)
   end
 
-  xit 'test 10' do
+  it 'test 10' do
     # Return the full menu for Olive Garden
-
-    olive_garden_menu = _____
+    full_menu = {}
+    olive_garden_menu = 
+    stores[:olive_garden][:dishes].each do |dish|
+      full_menu[dish[:name]] = dish
+    end
     
     expected = {
       "Risotto" => {
@@ -120,13 +146,19 @@ RSpec.describe 'Advanced Nested Collections' do
         :price => 15
       }
     }
-    expect(olive_garden_menu).to eq(expected)
+    expect(full_menu).to eq(expected)
   end
 
-  xit 'test 11' do
+  it 'test 11' do
     # Return a full menu across all restaurants
-    full_menu = ____
-
+    fm = {}
+    full_menu = 
+    stores.map do |store_name, store_info|
+      store_info[:dishes].each do |dish|
+        fm[dish[:name]] = dish
+      end
+    end
+    binding.pry
     expected = {
       "Risotto" => {
         :name => "Risotto",
@@ -159,6 +191,6 @@ RSpec.describe 'Advanced Nested Collections' do
         :price => 2
       }
     }
-    expect(full_menu).to eq(expected)
+    expect(fm).to eq(expected)
   end
 end
