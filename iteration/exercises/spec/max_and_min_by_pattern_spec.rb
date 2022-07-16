@@ -1,5 +1,5 @@
 RSpec.describe 'max and min by pattern' do
-  it 'test 1'  do
+  xit 'test 1'  do
     numbers = [1, 100, 1000, 1000000]
     greatest = numbers[0]
     numbers.each do |number|
