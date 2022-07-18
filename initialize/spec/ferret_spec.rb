@@ -14,7 +14,7 @@ RSpec.describe Ferret do
     expect(ferret.name).to eq(nil)
   end
 
-  xit 'can be given a name' do
+  it 'can be given a name' do
     ferret = Ferret.new
 
     ferret.give_name('Felix')

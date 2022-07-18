@@ -1,13 +1,13 @@
 class Ferret
-    attr_reader
+    attr_reader :name
 
-    def initialize(name = nil)
-        @name = name
+    def initialize
+        
     end
 
    
 
-    def give_name(x)
+    def give_name(name)
+        @name = name
     end
 end 
-nil
