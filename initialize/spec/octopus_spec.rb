@@ -21,13 +21,13 @@ RSpec.describe Octopus do
   it 'has an animal as a friend' do
     nancy = Narwhal.new({cute: true, weight: 500, name: "Nancy"})
     orville = Octopus.new("Orville", nancy)
-
+    
     expect(orville.friend).to eq(nancy)
   end
 
   it 'can have any animal as a friend' do
     eel = Eel.new("Earl")
-    orville = Octopus.new("Orville", nancy)
+    orville = Octopus.new("Orville", eel)
 
     expect(orville.friend).to eq(eel)
   end

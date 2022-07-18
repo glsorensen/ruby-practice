@@ -1,5 +1,6 @@
 require 'rspec'
 require_relative '../lib/groundhog'
+require 'pry'
 
 RSpec.describe Groundhog do
   it 'exists' do
@@ -11,13 +12,12 @@ RSpec.describe Groundhog do
   it 'has a name' do
     gabby = Groundhog.new("Gabby")
 
-    expect(gabby.name).to be("Gabby")
+    expect(gabby.name).to eq("Gabby")
   end
 
   it 'can change name' do
     groundhog = Groundhog.new("Gabby")
     groundhog.name = "Gary"
-
     expect(groundhog.name).to eq("Gary")
   end
 end

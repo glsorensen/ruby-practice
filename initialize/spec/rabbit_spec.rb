@@ -14,7 +14,7 @@ RSpec.describe Rabbit do
     expect(ralph.name).to eq("Ralph")
   end
 
-  it "name ends with rabbit if 2 syllables" do
+  it "name ends with rabbxit if 2 syllables" do
     ralph = Rabbit.new({name: "Ralph", num_syllables: 1})
     rita = Rabbit.new({name: "Rita", num_syllables: 2})
     roberto = Rabbit.new({name: "Roberto", num_syllables: 3})

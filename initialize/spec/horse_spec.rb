@@ -14,7 +14,7 @@ RSpec.describe Horse do
     expect(harry.name).to eq("Harry")
   end
 
-  it 'starts with empty diet' do
+  it 'starts wxith empty diet' do
     harry = Horse.new("Harry")
 
     expect(harry.diet).to eq([])
