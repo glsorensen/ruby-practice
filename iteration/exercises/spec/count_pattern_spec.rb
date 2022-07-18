@@ -8,10 +8,14 @@ RSpec.describe 'count pattern' do
         younger_than_thirty += 1
       end
     end
+
+    younger_than_thirty =
+
+    ages.select { |age| age < 30 }.count
     expect(younger_than_thirty).to eq(2)
   end
 
-  xit 'test 2' do
+  it 'test 2' do
     ages = {
       abdi: 39,
       hassan: 45,
@@ -28,11 +32,14 @@ RSpec.describe 'count pattern' do
     expect(younger_than_thirty).to eq(2)
   end
 
-  xit 'test 3' do
+  it 'test 3' do
     ages = [39, 45, 29, 24, 50]
     older_than_fifty = 0
     ages.each do |age|
       # Your Code Here
+      if age > 50
+        older_than_fifty += 1
+      end
     end
 
     expect(older_than_fifty).to eq(0)
@@ -49,20 +56,25 @@ RSpec.describe 'count pattern' do
     older_than_fifty = 0
     ages.each do |name, age|
       # Your Code Here
+      if age > 50
+        older_than_fifty += 1
+      end
     end
 
     expect(older_than_fifty).to eq(0)
   end
 
-  xit 'test 5' do
+  it 'test 5' do
     ages = [39, 45, 29, 24, 50]
-    multiple_of_three = 0
+    multiple_of_three = 
+
+    ages.select { |age| age % 3 == 0 }.count
     # Your Code Here
 
     expect(multiple_of_three).to eq(3)
   end
 
-  xit 'test 6' do
+  it 'test 6' do
     ages = {
       abdi: 39,
       hassan: 45,
@@ -70,20 +82,26 @@ RSpec.describe 'count pattern' do
       margaret: 24,
       miguel: 50
     }
-    multiple_of_three = 0
+    multiple_of_three = 
+
+    ages.select { |name, age| age % 3 == 0 }.count
     # Your Code Here
 
     expect(multiple_of_three).to eq(3)
   end
 
-  xit 'test 7' do
+  it 'test 7' do
     family = ["alice", "bob", "charlie", "david", "eve"]
     # Your Code Here
+
+    names_with_three_letters = 
+
+    family.select { |name| name.length == 3 }.count
 
     expect(names_with_three_letters).to eq(2)
   end
 
-  xit 'test 8' do
+  it 'test 8' do
     family = {
       mother: "alice",
       father: "bob",
@@ -92,18 +110,25 @@ RSpec.describe 'count pattern' do
       sister: "eve"
     }
     # Your Code Here
+    names_with_three_letters = 
+
+    family.select { |relation, name| name.length == 3 }.count
 
     expect(names_with_three_letters).to eq(2)
   end
 
-  xit 'test 9' do
+  it 'test 9' do
     prices = [1.0, 3.9, 5.99, 18.5, 20.0]
     # Your code goes here
+
+    whole_numbers =
+
+    prices.select { |price| price % 1 == 0}.count
 
     expect(whole_numbers).to eq(2)
   end
 
-  xit 'test 10' do
+  it 'test 10' do
     prices = {
       "shoes" => 1.0,
       "backpack" => 3.9,
@@ -112,6 +137,9 @@ RSpec.describe 'count pattern' do
       "food" => 20.0
     }
     # Your Code Here
+    whole_numbers =
+
+    prices.select { |product, price| price % 1 == 0}.count
 
     expect(whole_numbers).to eq(2)
   end
