@@ -2,25 +2,25 @@ require 'rspec'
 require_relative '../lib/horse'
 
 RSpec.describe Horse do
-  it 'exists' do
+  xit 'exists' do
     harry = Horse.new("Harry")
 
     expect(harry).to be_an_instance_of(Horse)
   end
 
-  it 'has a name' do
+  xit 'has a name' do
     harry = Horse.new("Harry")
 
     expect(harry.name).to eq("Harry")
   end
 
-  it 'starts with empty diet' do
+  xit 'starts wxith empty diet' do
     harry = Horse.new("Harry")
 
     expect(harry.diet).to eq([])
   end
 
-  it 'can add to diet' do
+  xit 'can add to diet' do
     harry = Horse.new("Harry")
 
     harry.add_to_diet("Hay")
